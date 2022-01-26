@@ -6,16 +6,15 @@ namespace Metaverso
     public class SistemaTest
     {
 
-        [Fact]
-        public void SaludoTest()
+        [Theory]
+        [InlineData(3,"Meta ")]
+        [InlineData(5,"Verso ")]
+        [InlineData(15,"Metaverso ")]
+        [InlineData(1, "1 ")]
+        public void SaludoTest(int num, string esperado)
         {
-            // Given
             var sis = new Sistema();
-            var param = "Santi";
-            var esperado = $"MAL Saludos {param}!";
-            // When
-            var result = sis.Saludo(param);
-            // Then
+            var result = sis.Meta(num);
             Assert.Equal(result, esperado);
         }
     }
